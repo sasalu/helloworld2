@@ -1,0 +1,16 @@
+{
+    "contents" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<projectDescription>\n\t<name>helloworld2</name>\n\t<comment></comment>\n\t<projects>\n\t</projects>\n\t<buildSpec>\n\t</buildSpec>\n\t<natures>\n\t</natures>\n</projectDescription>\n",
+    "created" : 1407323627240.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2410680225",
+    "id" : "A1F7F645",
+    "lastKnownWriteTime" : 1407323640,
+    "path" : "~/GitHub/helloworld2/.project",
+    "project_path" : ".project",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "text"
+}
