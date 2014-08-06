@@ -1,4 +1,4 @@
-export(gitstats)
+export(plotcars)
 import(RJSONIO)
 import(ggplot2)
 import(httr)
