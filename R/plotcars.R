@@ -4,6 +4,6 @@
 plotcars <- function () {
 		
 	
-	plot(cars)  
+	plot(myfile)  
 	invisible();
 }
