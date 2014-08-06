@@ -3,7 +3,7 @@
 
 plotcars <- function () {
 		
-	cars <- c(1, 3, 6, 4, 9)
+	cars <- read.csv("~/GitHub/helloworld2/cars.txt", header=FALSE)
 	
 	plot(cars)  
 	invisible();
