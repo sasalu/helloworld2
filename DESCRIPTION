@@ -1,11 +1,9 @@
-Package: gitstats
+Package: helloworld2
 Type: Package
-Title: Gitstats application for OpenCPU
-Version: 0.2.7
-Date: 2013-07-07
-Author: Scott Chamberlain, Jeroen Ooms
-Maintainer: Jeroen Ooms <jeroenooms@gmail.com>
-Description: OpenCPU application to chart github statistics.
+Title: Helloworld
+Version: 
+Date: 
+Description: 
 License: GPL
 Imports:
     ggplot2,
