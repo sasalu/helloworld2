@@ -1,5 +1,5 @@
-\name{gitstats}
-\alias{gitstats}
+\name{helloworld2}
+\alias{helloworld2}
 \title{Plot cars}
 \usage{
   plotcars()
@@ -8,9 +8,7 @@
   
 }
 \description{
-  This function plots the total number of forks and
-  followers for all repositories of a certain user or
-  organization.
+  This function plots cars.
 }
 
 }
