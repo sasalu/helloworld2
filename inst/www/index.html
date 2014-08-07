@@ -17,9 +17,6 @@
 <script src="bootstrap/js/bootstrap.js"> </script>
 <script src="jqueryui/jquery-ui-1.10.3.custom.js"> </script>
 
-<?php
-    $db = mysqli_connect('localhost','root','sasa','sasa');
-?>
 
 <script> 
 $(function(){
@@ -43,6 +40,27 @@ $(function(){
   $("#plotbutton").trigger("click")
 });
 </script>
+
+<script> 
+$(function(){
+
+   //button handler
+  $("#uploadbutton").on("click", function(e){
+    e.preventDefault();
+    $("#uploadbutton").attr("disabled", "disabled")
+    var req = $("#plotdiv").rplot("uploadcars", {
+      }).always(function(){
+      $("#uploadbutton").removeAttr("disabled");
+    }).fail(function(){
+      alert("HTTP error " + req.status + ": " + req.responseText);
+    });
+  });
+  
+  //plot the default values on page load
+  $("#plotbutton").trigger("click")
+});
+</script>
+
 <style>
 
 #plotdiv {
@@ -70,10 +88,7 @@ $(function(){
     <div class="page-header">
       <h1>A</h1>
     </div>
-    <?php
-                $query = "INSERT INTO teplota (idteplota) VALUES (2)";
-                
-    ?>
+    
     <div class="row">
       <div class="span3">
 
@@ -90,8 +105,8 @@ $(function(){
       		<br />
             
 			<br />
-            
-            <button class="btn btn-small btn-primary" id="plotbutton"><i class="icon-ok icon-white"></i> Plot series</button>
+            <button class="btn btn-small btn-primary" id="uploadbutton"><i class="icon-ok icon-white"></i> Upload values</button>
+            <button class="btn btn-small btn-primary" id="plotbutton"><i class="icon-ok icon-white"></i> Plot values</button>
           </fieldset>
         </form>
       </div>
