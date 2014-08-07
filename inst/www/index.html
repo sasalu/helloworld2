@@ -19,46 +19,15 @@
 
 <script>
     //init this script when the page has loaded
-    $(document).ready(function(){
-      $("#submitbutton").on("click", function(){
+	$mysqlserver="localhost";
+	$mysqlusername="sasa";
+	$mysqlpassword="sasa";
+	$dbname = 'sasa';
 
-        //arguments
-        var myheader = $("#header").val() == "true";
-        var myfile = $("#csvfile")[0].files[0];
-        
-        if(!myfile){
-          alert("No file selected.");
-          return;
-        }
+	$link=mysql_connect($mysqlserver, $mysqlusername, $mysqlpassword) or die ("Error connecting to mysql server: ".mysql_error());
+	mysql_select_db($dbname, $link) or die ("Error selecting specified database on mysql server: ".mysql_error());  
 
-        //disable the button during upload
-        $("#submitbutton").attr("disabled", "disabled");
-
-        //perform the request
-        var req = ocpu.call("readcsvnew", {
-          file : myfile,
-          header : myheader
-        }, function(session){
-          $("#printlink").attr("href", session.getLoc() + "R/.val/print")
-          $("#rdalink").attr("href", session.getLoc() + "R/.val/rda")
-          $("#csvlink").attr("href", session.getLoc() + "R/.val/csv")
-          $("#tablink").attr("href", session.getLoc() + "R/.val/tab")
-          $("#jsonlink").attr("href", session.getLoc() + "R/.val/json")
-          $("#mdlink").attr("href", session.getLoc() + "R/.val/md")
-        });
-        
-        //if R returns an error, alert the error message
-        req.fail(function(){
-          alert("Server error: " + req.responseText);
-        });
-        
-        //after request complete, re-enable the button 
-        req.always(function(){
-          $("#submitbutton").removeAttr("disabled")
-        });        
-      });       
-    });
-    </script>
+</script>
 	
 
 <script> 
