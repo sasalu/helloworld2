@@ -116,22 +116,17 @@ $(function(){
 
         <form class="well" id="paramform">
           <fieldset>
-            <legend>Select Parameters</legend>
-            <label>Choose file</label> 
             <input class="input-medium" id="choosefile" type="file" ></input>
-
-            <label>Attribute</label> 
-            <select class="input-medium" id="type">
-              
-            </select> 
-            
-            <label>Support</label> 
-            <input class="input-medium" type="number" id="max" min="1" max="100" value="20" />
 			
-			 <label>Confidence</label> 
-            <input class="input-medium" type="number" id="max" min="1" max="100" value="80" />
+			<br />
+			<button id="submitbutton" type="button">Upload CSV file!</button>
+			<br>
             
-            <br />
+			<br />
+			<a target="_blank" id="csvlink">csv</a></li>
+      		<br />
+            
+			<br />
             
             <button class="btn btn-small btn-primary" id="plotbutton"><i class="icon-ok icon-white"></i> Plot series</button>
           </fieldset>

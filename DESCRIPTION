@@ -8,7 +8,8 @@ Maintainer: Alexandra Lukacova <lukacova.alexandra@gmail.com>
 Description: OpenCPU application to helloworld.
 License: GPL
 Imports:
-    ggplot2,
+    RMySQL,
+	ggplot2,
     httr,
     RJSONIO,
     reshape2
