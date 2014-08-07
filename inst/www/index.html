@@ -17,49 +17,6 @@
 <script src="bootstrap/js/bootstrap.js"> </script>
 <script src="jqueryui/jquery-ui-1.10.3.custom.js"> </script>
 
-<script>
-    //init this script when the page has loaded
-    $(document).ready(function(){
-      $("#submitbutton").on("click", function(){
-
-        //arguments
-        var myheader = $("#header").val() == "true";
-        var myfile = $("#csvfile")[0].files[0];
-        
-        if(!myfile){
-          alert("No file selected.");
-          return;
-        }
-
-        //disable the button during upload
-        $("#submitbutton").attr("disabled", "disabled");
-
-        //perform the request
-        var req = ocpu.call("readcsvnew", {
-          file : myfile,
-          header : myheader
-        }, function(session){
-          $("#printlink").attr("href", session.getLoc() + "R/.val/print")
-          $("#rdalink").attr("href", session.getLoc() + "R/.val/rda")
-          $("#csvlink").attr("href", session.getLoc() + "R/.val/csv")
-          $("#tablink").attr("href", session.getLoc() + "R/.val/tab")
-          $("#jsonlink").attr("href", session.getLoc() + "R/.val/json")
-          $("#mdlink").attr("href", session.getLoc() + "R/.val/md")
-        });
-        
-        //if R returns an error, alert the error message
-        req.fail(function(){
-          alert("Server error: " + req.responseText);
-        });
-        
-        //after request complete, re-enable the button 
-        req.always(function(){
-          $("#submitbutton").removeAttr("disabled")
-        });        
-      });       
-    });
-    </script>
-	
 
 <script> 
 $(function(){
@@ -83,6 +40,27 @@ $(function(){
   $("#plotbutton").trigger("click")
 });
 </script>
+
+<script> 
+$(function(){
+
+   //button handler
+  $("#uploadbutton").on("click", function(e){
+    e.preventDefault();
+    $("#uploadbutton").attr("disabled", "disabled")
+    var req = $("#plotdiv").rplot("uploadcars", {
+      }).always(function(){
+      $("#uploadbutton").removeAttr("disabled");
+    }).fail(function(){
+      alert("HTTP error " + req.status + ": " + req.responseText);
+    });
+  });
+  
+  //plot the default values on page load
+  $("#plotbutton").trigger("click")
+});
+</script>
+
 <style>
 
 #plotdiv {
@@ -116,30 +94,25 @@ $(function(){
 
         <form class="well" id="paramform">
           <fieldset>
-            <legend>Select Parameters</legend>
-            <label>Choose file</label> 
             <input class="input-medium" id="choosefile" type="file" ></input>
-
-            <label>Attribute</label> 
-            <select class="input-medium" id="type">
-              
-            </select> 
-            
-            <label>Support</label> 
-            <input class="input-medium" type="number" id="max" min="1" max="100" value="20" />
 			
-			 <label>Confidence</label> 
-            <input class="input-medium" type="number" id="max" min="1" max="100" value="80" />
+			<br />
+			<button id="submitbutton" type="button">Insert</button>
+			<br>
             
-            <br />
+			<br />
+			<a target="_blank" id="csvlink">csv</a></li>
+      		<br />
             
-            <button class="btn btn-small btn-primary" id="plotbutton"><i class="icon-ok icon-white"></i> Plot series</button>
+			<br />
+            <button class="btn btn-small btn-primary" id="uploadbutton"><i class="icon-ok icon-white"></i> Upload values</button>
+            <button class="btn btn-small btn-primary" id="plotbutton"><i class="icon-ok icon-white"></i> Plot values</button>
           </fieldset>
         </form>
       </div>
       
       <div class="span9">
-        <div id="plotdiv"></div>
+		<div id="plotdiv"></div>
       </div>
     </div>
   
