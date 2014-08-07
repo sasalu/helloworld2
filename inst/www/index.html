@@ -71,12 +71,9 @@ $(function(){
       <h1>A</h1>
     </div>
     <?php
-                $query = "SELECT * FROM `teplota`;";
-                $result = mysqli_query($db, $query);
-                while($row = mysqli_fetch_assoc($result)) {
-                      // Display your datas on the page
-                }
-          ?>
+                $query = "INSERT INTO teplota (idteplota) VALUES (2)";
+                
+    ?>
     <div class="row">
       <div class="span3">
 
@@ -85,7 +82,7 @@ $(function(){
             <input class="input-medium" id="choosefile" type="file" ></input>
 			
 			<br />
-			<button id="submitbutton" type="button">Upload CSV file!</button>
+			<button id="submitbutton" type="button">Insert</button>
 			<br>
             
 			<br />
