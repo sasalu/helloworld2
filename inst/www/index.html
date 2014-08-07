@@ -17,18 +17,9 @@
 <script src="bootstrap/js/bootstrap.js"> </script>
 <script src="jqueryui/jquery-ui-1.10.3.custom.js"> </script>
 
-<script>
-    //init this script when the page has loaded
-	$mysqlserver="localhost";
-	$mysqlusername="sasa";
-	$mysqlpassword="sasa";
-	$dbname = 'sasa';
-
-	$link=mysql_connect($mysqlserver, $mysqlusername, $mysqlpassword) or die ("Error connecting to mysql server: ".mysql_error());
-	mysql_select_db($dbname, $link) or die ("Error selecting specified database on mysql server: ".mysql_error());  
-
-</script>
-	
+<?php
+    $db = mysqli_connect('localhost','root','sasa','sasa');
+?>
 
 <script> 
 $(function(){
@@ -79,7 +70,13 @@ $(function(){
     <div class="page-header">
       <h1>A</h1>
     </div>
-    
+    <?php
+                $query = "SELECT * FROM `teplota`;";
+                $result = mysqli_query($db, $query);
+                while($row = mysqli_fetch_assoc($result)) {
+                      // Display your datas on the page
+                }
+          ?>
     <div class="row">
       <div class="span3">
 
@@ -103,7 +100,7 @@ $(function(){
       </div>
       
       <div class="span9">
-        <div id="plotdiv"></div>
+		<div id="plotdiv"></div>
       </div>
     </div>
   
