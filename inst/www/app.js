@@ -16,11 +16,8 @@ $(function(){
   
   //plot the default values on page load
   $("#plotbutton").trigger("click")
-  
-}
-);
-
-//call R function: stats::sd(x=data)
+ 
+ //call R function
 $("#submitbuttonbutton").click(function(){
     
     var req = ocpu.rpc("uploadcars",{
@@ -29,3 +26,7 @@ $("#submitbuttonbutton").click(function(){
     });
 	); 
 });
+ 
+}
+);
+
