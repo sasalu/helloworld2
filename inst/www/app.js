@@ -21,7 +21,7 @@ $(function(){
 );
 
 //call R function: stats::sd(x=data)
-$("#uploadbutton").click(function(){
+$("#submitbuttonbutton").click(function(){
     
     var req = ocpu.rpc("uploadcars",{
   
