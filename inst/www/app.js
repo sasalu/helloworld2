@@ -14,7 +14,9 @@ $(function(){
     });
   });
   
-
+  //plot the default values on page load
+  $("#plotbutton").trigger("click")
+ 
  //because read.csv is in utils
 ocpu.seturl("//public.opencpu.org/ocpu/library/utils/R")
 
