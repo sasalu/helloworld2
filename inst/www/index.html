@@ -21,29 +21,6 @@
 <script> 
 $(function(){
 
-  //optional, requires jquery-ui.
-  $("#plotdiv").resizable()
-  
-  //button handler
-  $("#plotbutton").on("click", function(e){
-    e.preventDefault();
-    $("#plotbutton").attr("disabled", "disabled")
-    var req = $("#plotdiv").rplot("plotcars", {
-      }).always(function(){
-      $("#plotbutton").removeAttr("disabled");
-    }).fail(function(){
-      alert("HTTP error " + req.status + ": " + req.responseText);
-    });
-  });
-  
-  //plot the default values on page load
-  $("#plotbutton").trigger("click")
-});
-</script>
-
-<script> 
-	$(function(){
-
 	//CSV file
 	$("#csvfile").on("change", function loadfile(e){
 	if(!$("#csvfile").val()) return;
@@ -59,13 +36,16 @@ $(function(){
 	$(".spinner").hide()
 	});
 	
-   //button handler
-  $("#uploadbutton").on("click", function(e){
+  //optional, requires jquery-ui.
+  $("#plotdiv").resizable()
+  
+  //button handler
+  $("#plotbutton").on("click", function(e){
     e.preventDefault();
-  $("#uploadbutton").attr("disabled", "disabled")
-    var req = $("#plotdiv").rplot("uploadcars", {
+    $("#plotbutton").attr("disabled", "disabled")
+    var req = $("#plotdiv").rplot("plotcars", {
       }).always(function(){
-      $("#uploadbutton").removeAttr("disabled");
+      $("#plotbutton").removeAttr("disabled");
     }).fail(function(){
       alert("HTTP error " + req.status + ": " + req.responseText);
     });
@@ -109,15 +89,9 @@ $(function(){
 
         <form class="well" id="paramform">
           <fieldset>
-            <input class="input-medium" id="choosefile" type="file" ></input>
-			
-			<br />
+            <br />
 			<button id="submitbutton" type="button">Insert</button>
 			<br>
-            
-			<br />
-			<a target="_blank" id="csvlink">csv</a></li>
-      		<br />
             
 			<br />
             <input class="btn btn-primary btn-lg" type="file" id="csvfile"><i class="icon-ok icon-white">
