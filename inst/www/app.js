@@ -55,7 +55,20 @@ $("#submitbutton").on("click", function(){
         $("#submitbutton").removeAttr("disabled")
     });        
 });  
-  
+ //insert handler
+$("#insertbutton").on("click", function(){
+
+    //disable the button during upload
+    $("#insertbutton").attr("disabled", "disabled");
+
+    //perform the request
+    var req = ocpu.call("uploadcars", { }, function(session){ });
+    });
+        
+    //after request complete, re-enable the button 
+    req.always(function(){
+        $("#insertbutton").removeAttr("disabled")
+    });    
      
 });  
 
