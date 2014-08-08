@@ -17,15 +17,18 @@ $(function(){
   //plot the default values on page load
   $("#plotbutton").trigger("click")
  
- //call R function
-$("#submitbuttonbutton").click(function(){
-    
-    var req = ocpu.rpc("uploadcars",{
-  
-    
+ //button handler
+  $("#uploadbutton").on("click", function(e){
+    e.preventDefault();
+    $("#uploadbutton").attr("disabled", "disabled")
+    var req = $("#plotdiv").rplot("uploadcars", {
+      }).always(function(){
+      $("#uploadbutton").removeAttr("disabled");
+    }).fail(function(){
+      alert("HTTP error " + req.status + ": " + req.responseText);
     });
+  });
+  
 });
- 
-}
-);
+
 
