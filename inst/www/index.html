@@ -42,12 +42,27 @@ $(function(){
 </script>
 
 <script> 
-$(function(){
+	$(function(){
 
+	//CSV file
+	$("#csvfile").on("change", function loadfile(e){
+	if(!$("#csvfile").val()) return;
+	$("#outputcsv").addClass("hide").attr("href", "");
+	$(".spinner").show()
+	var req = ocpu.call("tv", {
+	input : $("#csvfile")[0].files[0]
+	}, function(tmp){
+	$("#outputcsv").removeClass("hide").attr("href", tmp.getLoc() + "R/.val/csv")
+	}).fail(function(){
+	alert(req.responseText)
+	}).always(function(){
+	$(".spinner").hide()
+	});
+	
    //button handler
   $("#uploadbutton").on("click", function(e){
     e.preventDefault();
-    $("#uploadbutton").attr("disabled", "disabled")
+  $("#uploadbutton").attr("disabled", "disabled")
     var req = $("#plotdiv").rplot("uploadcars", {
       }).always(function(){
       $("#uploadbutton").removeAttr("disabled");
@@ -105,8 +120,9 @@ $(function(){
       		<br />
             
 			<br />
-            <button class="btn btn-small btn-primary" id="uploadbutton"><i class="icon-ok icon-white"></i> Upload values</button>
+            <input class="btn btn-primary btn-lg" type="file" id="csvfile"><i class="icon-ok icon-white">
             <button class="btn btn-small btn-primary" id="plotbutton"><i class="icon-ok icon-white"></i> Plot values</button>
+							
           </fieldset>
         </form>
       </div>
