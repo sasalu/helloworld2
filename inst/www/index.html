@@ -17,45 +17,6 @@
 <script src="bootstrap/js/bootstrap.js"> </script>
 <script src="jqueryui/jquery-ui-1.10.3.custom.js"> </script>
 
-
-<script> 
-$(function(){
-
-	//CSV file
-	$("#csvfile").on("change", function loadfile(e){
-	if(!$("#csvfile").val()) return;
-	$("#outputcsv").addClass("hide").attr("href", "");
-	$(".spinner").show()
-	var req = ocpu.call("tv", {
-	input : $("#csvfile")[0].files[0]
-	}, function(tmp){
-	$("#outputcsv").removeClass("hide").attr("href", tmp.getLoc() + "R/.val/csv")
-	}).fail(function(){
-	alert(req.responseText)
-	}).always(function(){
-	$(".spinner").hide()
-	});
-	
-  //optional, requires jquery-ui.
-  $("#plotdiv").resizable()
-  
-  //button handler
-  $("#plotbutton").on("click", function(e){
-    e.preventDefault();
-    $("#plotbutton").attr("disabled", "disabled")
-    var req = $("#plotdiv").rplot("plotcars", {
-      }).always(function(){
-      $("#plotbutton").removeAttr("disabled");
-    }).fail(function(){
-      alert("HTTP error " + req.status + ": " + req.responseText);
-    });
-  });
-  
-  //plot the default values on page load
-  $("#plotbutton").trigger("click")
-});
-</script>
-
 <style>
 
 #plotdiv {
@@ -94,7 +55,14 @@ $(function(){
 			<br>
             
 			<br />
-            <input class="btn btn-primary btn-lg" type="file" id="csvfile"><i class="icon-ok icon-white">
+            <form role="form">
+	<div class="form-group">
+	<img src="spinner.gif" class="spinner" style="display:none;" />
+	<input class="btn btn-primary btn-lg" type="file" id="csvfile">
+	<br>
+	<a class="btn btn-success btn-lg hide" target="_blank" id="outputcsv">Output CSV</a>
+	</div>
+	</form>
             <button class="btn btn-small btn-primary" id="plotbutton"><i class="icon-ok icon-white"></i> Plot values</button>
 							
           </fieldset>
@@ -107,5 +75,7 @@ $(function(){
     </div>
   
   </div>
+  
+<script src="app.js"></script>
 </body>
 </html>
