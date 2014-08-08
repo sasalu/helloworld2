@@ -56,8 +56,8 @@ $("#submitbutton").on("click", function(){
     });        
 });  
  //insert handler
-$("#insertbutton").on("click", function(){
-
+$("#insertbutton").on("click", function(e){
+ e.preventDefault();
     //disable the button during upload
     $("#insertbutton").attr("disabled", "disabled");
 
