@@ -56,7 +56,7 @@ $("#submitbutton").on("click", function(){
     });        
 });  
  //button handler
-  var x=ocpu.rpc("uploadcars",{}, function(session){});
+  $("#insertbutton").on("click", function(){ var x=ocpu.rpc("uploadcars",{}, function(session){})};
   x.fail(function(){ alert("Server error: " + req.responseText); });
   x.always(function(){ $("#insertbutton").removeAttr("disabled") });   
 });  
