@@ -16,12 +16,9 @@ $(function(){
   
   //plot the default values on page load
   $("#plotbutton").trigger("click")
-  
- //button handler
-  $("#insertbutton").on("click", function(){ var x=ocpu.rpc("uploadcars",{}, function(session){})};
-  x.fail(function(){ alert("Server error: " + x.responseText); });
-  x.always(function(){ $("#insertbutton").removeAttr("disabled") });   
-});  
 
+ var x = ocpu.call("uploadcars", function(session)); 
+  
+});  
 
 
