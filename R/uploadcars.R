@@ -1,7 +1,7 @@
 #' Upload cars
 #' 
 
-uploadcars <- function () {
+uploadcars <- function (file, header) {
 	
 	x <- read.csv(file=file, header=header, sep=";")
 	con <- dbConnect(MySQL(), host="127.0.0.1", port= 3306, user="root", password = "sasa", dbname="sasa")

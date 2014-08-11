@@ -14,12 +14,16 @@ $(function(){
     });
   });
   
+	
+	
+$("#insertbutton").on("click", function(){
+    
 	var myheader = $("#header").val() == "true";
 	var myfile = $("#csvfile")[0].files[0];
+    if(!myfile){ alert("No file selected."); return; }
 	
-$("#insertbutton").on("click", function(d){
-    d.preventDefault();
-    $("#insertbutton").attr("disabled", "disabled")
+	$("#insertbutton").attr("disabled", "disabled");
+	
     var x = ocpu.call("uploadcars", {
 		file : myfile,
 		header : myheader
