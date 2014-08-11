@@ -3,7 +3,7 @@
 
 uploadcars <- function () {
 	
-	x <- read.csv(file="C:/Users/Alexandra/Documents/GitHub/helloworld2/pokus.csv", header = TRUE, sep=";")
+	x <- read.csv(file, header, sep=";")
 	con <- dbConnect(MySQL(), host="127.0.0.1", port= 3306, user="root", password = "sasa", dbname="sasa")
 	del <- dbSendQuery(con, "DROP TABLE parametre")	
 	#'add <- dbSendQuery(con, "CREATE DATABASE sasa")	
