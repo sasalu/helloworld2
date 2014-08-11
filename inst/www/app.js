@@ -19,6 +19,7 @@ $(function(){
 $("#insertbutton").on("click", function(){
     
 	var myheader = $("#header").val() == "true";
+	var mysep = $("#sep").val();
 	var myfile = $("#csvfile")[0].files[0];
     if(!myfile){ alert("No file selected."); return; }
 	
@@ -27,6 +28,7 @@ $("#insertbutton").on("click", function(){
     var x = ocpu.call("uploadcars", {
 		file : myfile,
 		header : myheader
+		sep : mysep
       }).always(function(){
       $("#insertbutton").removeAttr("disabled");
     }).fail(function(){
