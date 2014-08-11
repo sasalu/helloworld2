@@ -13,6 +13,17 @@ $(function(){
       alert("HTTP error " + req.status + ": " + req.responseText);
     });
   });
+
+$("#insertbutton").on("click", function(d){
+    d.preventDefault();
+    $("#insertbutton").attr("disabled", "disabled")
+    var x = ocpu.call("uploadcars", {
+      }).always(function(){
+      $("#insertbutton").removeAttr("disabled");
+    }).fail(function(){
+      alert("HTTP error " + x.status + ": " + x.responseText);
+    });
+  });
   
 });  
 
