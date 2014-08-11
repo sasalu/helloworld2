@@ -19,7 +19,7 @@ $(function(){
 $("#insertbutton").on("click", function(){
     
 	var myheader = $("#header").val() == "true";
-	var mysep = $("#sep:checked").val();
+	var mysep = $('input[name=sep]').click(function() { alert($('input[name=sep]:checked').val()); });
 	var myfile = $("#csvfile")[0].files[0];
     if(!myfile){ alert("No file selected."); return; }
 	
