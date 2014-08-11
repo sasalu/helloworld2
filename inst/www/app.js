@@ -56,17 +56,9 @@ $("#submitbutton").on("click", function(){
     });        
 });  
  //button handler
-  $("#insertbutton").on("click", function(e){
-    e.preventDefault();
-    $("#insertbutton").attr("disabled", "disabled")
-    var req = $("#insertbutton").call("uploadcars", {
-      }).always(function(){
-      $("#insertbutton").removeAttr("disabled");
-    }).fail(function(){
-      alert("HTTP error " + req.status + ": " + req.responseText);
-    });
-  });
-     
+  var x=ocpu.rpc("uploadcars",{}, function(session){});
+  x.fail(function(){ alert("Server error: " + req.responseText); });
+  x.always(function(){ $("#insertbutton").removeAttr("disabled") });   
 });  
 
 
