@@ -16,9 +16,7 @@ $(function(){
   
   //plot the default values on page load
   $("#plotbutton").trigger("click")
-
- var x = ocpu.call("uploadcars", function(session)); 
-  
+   
 });  
 
 
