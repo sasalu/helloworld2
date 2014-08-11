@@ -27,7 +27,7 @@ $("#insertbutton").on("click", function(){
 	
     var x = ocpu.call("uploadcars", {
 		file : myfile,
-		header : myheader
+		header : myheader,
 		sep : mysep
       }).always(function(){
       $("#insertbutton").removeAttr("disabled");
