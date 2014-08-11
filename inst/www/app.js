@@ -14,9 +14,6 @@ $(function(){
     });
   });
   
-  //plot the default values on page load
-  $("#plotbutton").trigger("click")
-   
 });  
 
 
