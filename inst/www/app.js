@@ -55,20 +55,17 @@ $("#submitbutton").on("click", function(){
         $("#submitbutton").removeAttr("disabled")
     });        
 });  
- //insert handler
-$("#insertbutton").on("click", function(e){
- e.preventDefault();
-    //disable the button during upload
-    $("#insertbutton").attr("disabled", "disabled");
-
-    //perform the request
-    var req = ocpu.call("uploadcars", { }, function(session){ });
+ //button handler
+  $("#insertbutton").on("click", function(e){
+    e.preventDefault();
+    $("#insertbutton").attr("disabled", "disabled")
+    var req = $("#insertbutton").call("uploadcars", {
+      }).always(function(){
+      $("#insertbutton").removeAttr("disabled");
+    }).fail(function(){
+      alert("HTTP error " + req.status + ": " + req.responseText);
     });
-        
-    //after request complete, re-enable the button 
-    req.always(function(){
-        $("#insertbutton").removeAttr("disabled")
-    });    
+  });
      
 });  
 
