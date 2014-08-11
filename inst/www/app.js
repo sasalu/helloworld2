@@ -19,7 +19,13 @@ $(function(){
 $("#insertbutton").on("click", function(){
     
 	var myheader = $("#header").val() == "true";
-	var mysep = $('input[name=sep]').click(function() { alert($('input[name=sep]:checked').val()); });
+	var mysep = document.getElementsByName("sep");
+
+	for(var i = 0; i < mysep.length; i++) {
+	if(mysep[i].checked == true) {
+       selectedSep = mysep[i].value;
+   }
+ }
 	var myfile = $("#csvfile")[0].files[0];
     if(!myfile){ alert("No file selected."); return; }
 	
@@ -28,7 +34,7 @@ $("#insertbutton").on("click", function(){
     var x = ocpu.call("uploadcars", {
 		file : myfile,
 		header : myheader,
-		sep : mysep
+		sep : selectedSep
       }).always(function(){
       $("#insertbutton").removeAttr("disabled");
     }).fail(function(){
