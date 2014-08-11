@@ -13,18 +13,25 @@ $(function(){
       alert("HTTP error " + req.status + ": " + req.responseText);
     });
   });
-
+  
+	var myheader = $("#header").val() == "true";
+	var myfile = $("#csvfile")[0].files[0];
+	
 $("#insertbutton").on("click", function(d){
     d.preventDefault();
     $("#insertbutton").attr("disabled", "disabled")
     var x = ocpu.call("uploadcars", {
+		file : myfile,
+		header : myheader
       }).always(function(){
       $("#insertbutton").removeAttr("disabled");
     }).fail(function(){
       alert("HTTP error " + x.status + ": " + x.responseText);
     });
   });
-  
+ 
+ 
+ 
 });  
 
 
