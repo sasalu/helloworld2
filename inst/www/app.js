@@ -42,15 +42,15 @@ $("#insertbutton").on("click", function(){
 
 $("#selectbutton").on("click", function(){
     
-	
+	var z = ocpu.rpc("write", {}, function(output){
+   $("#option").text(output.message); });
    
     var elm = document.getElementById('attribute'),
         df = document.createDocumentFragment();
     for (var i = 1; i <= 6; i++) {
         var option = document.createElement('option');
         option.value = i;
-        option.appendChild(document.createTextNode(var z = ocpu.rpc("write", {}, function(output){
-   $("#option").text(output.message); });));
+        option.appendChild(document.createTextNode("x"));
         df.appendChild(option);
     }
     elm.appendChild(df);
