@@ -40,12 +40,16 @@ $("#insertbutton").on("click", function(){
     });
   });
 
-  $("#writebutton").on("click", function(){    
-	
+$("#writebutton").on("click", function(){
+    	
 	$("#writebutton").attr("disabled", "disabled");
-	
-    var z = ocpu.call("write", {}, function(output){ $("#output").text(output.message);} );  
-  });
+	var z = ocpu.call("write", {}).always(function(output){
+	  $("#output").text(output.message);
+      $("#writebutton").removeAttr("disabled");
+    }).fail(function(){
+      alert("HTTP error " + x.status + ": " + x.responseText);
+    });
+  });  
   
 });  
 
