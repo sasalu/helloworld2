@@ -44,7 +44,7 @@ $("#selectbutton").on("click", function(){
     
 	$("#selectbutton").attr("disabled", "disabled");
 	
-	(function() {
+	
     var elm = document.getElementById('attribute'),
         df = document.createDocumentFragment();
     for (var i = 1; i <= 42; i++) {
@@ -55,7 +55,7 @@ $("#selectbutton").on("click", function(){
         df.appendChild(option);
     }
     elm.appendChild(df);
-	}());  
+	());  
 	
    var z = ocpu.rpc("write", {}, function(output){
    $("#attribute").text(output.message); });
