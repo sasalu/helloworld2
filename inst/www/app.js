@@ -42,9 +42,9 @@ $("#insertbutton").on("click", function(){
 
   $("#writebutton").on("click", function(a){
     a.preventDefault();
-    $("#writebutton").attr("disabled", "disabled")
-    var z = ocpu.call("write", {output : output}, function(output){
-      $("#output").text(output.message);
+    $("#writebutton").attr("disabled", "disabled");
+    var z = ocpu.rpc("write", {}, function(output){
+      $("#output").val(output);
 	  $("#writebutton").removeAttr("disabled");
     });
   });
