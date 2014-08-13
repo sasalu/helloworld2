@@ -40,13 +40,12 @@ $("#insertbutton").on("click", function(){
     });
   });
 
-  $("#writebutton").on("click", function(e){
-    e.preventDefault();
+  $("#writebutton").on("click", function(a){
+    a.preventDefault();
     $("#writebutton").attr("disabled", "disabled")
-    var z = $("#output").ocpu.call("write", {}).always(function(){
-      $("#writebutton").removeAttr("disabled");
-    }).fail(function(){
-      alert("HTTP error " + req.status + ": " + req.responseText);
+    var z = ocpu.call("write", {}, function(output){
+      $("#output").text(output.message);
+	  $("#writebutton").removeAttr("disabled");
     });
   });
 });  
