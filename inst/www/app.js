@@ -41,7 +41,7 @@ $("#insertbutton").on("click", function(){
   });
 
 $("#writebutton").on("click", function(){
-    	
+    $("#output").text(output.message);	
 	$("#writebutton").attr("disabled", "disabled");
 	var z = ocpu.call("write", {}).always(function(output){
 	  $("#output").text(output.message);
