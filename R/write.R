@@ -7,5 +7,5 @@ write <- function () {
 	sel <- dbSendQuery(con, "select column_name from information_schema.columns where table_name='parametre'")
 	data2 = fetch(sel, n=-1)
 	list(print(data2[3,1]))
-)
+
 }
