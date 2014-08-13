@@ -42,7 +42,7 @@ $("#insertbutton").on("click", function(){
 
 $("#selectbutton").on("click", function(){
     
-	
+	 
     var elm = document.getElementById('attribute'),
         df = document.createDocumentFragment();
     for (var i = 1; i <= 42; i++) {
@@ -50,11 +50,11 @@ $("#selectbutton").on("click", function(){
         option.value = i;
         option.appendChild(document.createTextNode("option #" + i));
         df.appendChild(option);
-    
+    }
     elm.appendChild(df);
 }());
   
-  });  
+   
   
 });  
 
