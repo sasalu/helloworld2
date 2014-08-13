@@ -38,11 +38,10 @@ $("#insertbutton").on("click", function(){
     }).fail(function(){
       alert("HTTP error " + x.status + ": " + x.responseText);
     });
-	var z = ocpu.rpc("write", {}, function(output){
-      $("#option1").text(output.message); });
-  });
+	//var z = ocpu.rpc("write", {}, function(output){
+     // $("#option1").text(output.message); });
   
-(function() {
+  (function() {
     var elm = document.getElementById('attribute'),
         df = document.createDocumentFragment();
     for (var i = 1; i <= 42; i++) {
@@ -54,6 +53,10 @@ $("#insertbutton").on("click", function(){
     }
     elm.appendChild(df);
 }());  
+  
+  });
+  
+
 
 });  
 
