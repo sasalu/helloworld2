@@ -40,17 +40,15 @@ $("#insertbutton").on("click", function(){
     });
   });
 
-$("#writebutton").on("click", function(){
-    $("#output").text(output.message);	
-	$("#writebutton").attr("disabled", "disabled");
-	var z = ocpu.call("write", {}).always(function(output){
-	  $("#output").text(output.message);
+  $("#writebutton").on("click", function(e){
+    e.preventDefault();
+    $("#writebutton").attr("disabled", "disabled")
+    var z = $("#output").ocpu.call("write", {}).always(function(){
       $("#writebutton").removeAttr("disabled");
     }).fail(function(){
-      alert("HTTP error " + x.status + ": " + x.responseText);
+      alert("HTTP error " + req.status + ": " + req.responseText);
     });
-  });  
-  
+  });
 });  
 
 
