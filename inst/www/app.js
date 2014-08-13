@@ -44,7 +44,7 @@ $("#insertbutton").on("click", function(){
     a.preventDefault();
     $("#writebutton").attr("disabled", "disabled");
     var z = ocpu.rpc("write", {}, function(output){
-      $("#output").text(output.message);
+      $("#try").text(output.message);
 	  $("#writebutton").removeAttr("disabled");
     });
   });
