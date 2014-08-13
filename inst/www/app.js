@@ -40,6 +40,28 @@ $("#insertbutton").on("click", function(){
     });
   });
 
+$("#selectbutton").on("click", function(){
+    
+	$("#selectbutton").attr("disabled", "disabled");
+	
+	(function() {
+    var elm = document.getElementById('attribute'),
+        df = document.createDocumentFragment();
+    for (var i = 1; i <= 42; i++) {
+        var option = document.createElement('option');
+        option.value = i;
+        option.appendChild(document.createTextNode(var z = ocpu.rpc("write", {}, function(output){
+      $("attribute").text(output.message); })));
+        df.appendChild(option);
+    }
+    elm.appendChild(df);
+	}());  
+	
+   var z = ocpu.rpc("write", {}, function(output){
+   $("#attribute").text(output.message); });
+  
+  });  
+  
 });  
 
 
