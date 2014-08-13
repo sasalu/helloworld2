@@ -14,8 +14,6 @@ $(function(){
     });
   });
   
-	
-	
 $("#insertbutton").on("click", function(){
     
 	var myheader = $("#header").val() == "true";
@@ -41,9 +39,14 @@ $("#insertbutton").on("click", function(){
       alert("HTTP error " + x.status + ": " + x.responseText);
     });
   });
- 
- 
- 
+
+  $("#writebutton").on("click", function(){    
+	
+	$("#writebutton").attr("disabled", "disabled");
+	
+    var z = ocpu.call("write", {}, function(output){ $("#output").text(output.message);} );  
+  });
+  
 });  
 
 

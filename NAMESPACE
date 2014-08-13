@@ -1,5 +1,6 @@
 export(plotcars)
 export(uploadcars)
+export(write)
 import(RJSONIO)
 import(ggplot2)
 import(httr)

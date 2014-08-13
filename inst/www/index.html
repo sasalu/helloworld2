@@ -27,16 +27,30 @@
   border-radius: 4px;
 }
 
-#type {
-  width: 164px;
+#plotbutton{
+  width: 100px;
+  margin-left: 5px;
 }
 
-#plotbutton{
-  width: 120px;
-  margin-left: 20px;
+#header{
+  width: 80px;
+  margin-left: 5px;
+}
+
+#attribute{
+  width: 140px;
+  margin-left: 5px;
+}
+
+#output{
+height: 40px;
+width: 170px;
+border: 1px solid gray;
+padding: 3px;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -51,24 +65,36 @@
 
         <form class="well" id="paramform">
           <fieldset>
+		  
             <br />
+			
 			<b>File</b> <input type="file" id="csvfile"> 
 			<b>Header</b> <select id="header">
 				<option>true</option>
 				<option>false</option>
-			</select> 
+			</select><br> 
 			
 			<b>Separator</b><br>
-			<div class="radio">
-			<label><input type="radio" id="comma" name="sep" value="," /> Comma </label>
-			<label><input type="radio" id="semicolon" name="sep" value=";" /> Semicolon </label>
-			<label><input type="radio" id="tab" name="sep" value="/tab" /> Tab </label>
-			<br />            
+			
+			<label class="radio-inline">
+				<input type="radio" id="comma" name="sep" value="," /> Comma 
+			</label>
+			<label class="radio-inline">
+				<input type="radio" id="semicolon" name="sep" value=";" /> Semicolon 
+			</label>
+			<label class="radio-inline">
+				<input type="radio" id="tab" name="sep" value="\t" /> Tab 
+			</label>
+			           
 			<br />
-           	<button id="insertbutton" type="button">insert</button>
-			<br />
-			<br />
-            <button class="btn btn-small btn-primary" id="plotbutton"><i class="icon-ok icon-white"></i> Plot values</button>
+           	<button id="insertbutton" type="button">Upload values</button><br><br>
+			<b>Attribute</b> <select id="attribute">
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select> 
+			 <p id="output"></p>
+			 <button id="writebutton" type="button">write text</button><br><br>
+			<button class="btn btn-small btn-primary" id="plotbutton"><i class="icon-ok icon-white"></i> Plot values</button>
 										
           </fieldset>
         </form>
