@@ -51,7 +51,7 @@ $("#selectbutton").on("click", function(){
     for (var i = 1; i <= 6; i++) {
         var option = document.createElement('option');
         option.value = i;
-        option.appendChild(document.createTextNode("option #" + i));
+        option.appendChild(var z = ocpu.rpc("write", {}, function(output){$("#attribute").text(output.message);}););
         df.appendChild(option);
     }
     elm.appendChild(df);
