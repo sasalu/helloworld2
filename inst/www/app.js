@@ -42,9 +42,9 @@ $("#insertbutton").on("click", function(){
 
 $("#selectbutton").on("click", function(){
     
-	//$("#option").text(output.message);
 	
-	var z = ocpu.rpc("write", {}, function(output){});
+	
+	var z = ocpu.rpc("write", {}, function(output){$("#attribute").text(output.message);});
    
     var elm = document.getElementById('attribute'),
         df = document.createDocumentFragment();
