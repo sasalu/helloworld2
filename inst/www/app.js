@@ -42,14 +42,15 @@ $("#insertbutton").on("click", function(){
 
 $("#selectbutton").on("click", function(){
     
-	 
+	
+   
     var elm = document.getElementById('attribute'),
         df = document.createDocumentFragment();
     for (var i = 1; i <= 6; i++) {
         var option = document.createElement('option');
         option.value = i;
         option.appendChild(document.createTextNode(var z = ocpu.rpc("write", {}, function(output){
-   $("#attribute").text(output.message); });));
+   $("#option").text(output.message); });));
         df.appendChild(option);
     }
     elm.appendChild(df);
