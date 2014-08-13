@@ -38,15 +38,15 @@ $("#insertbutton").on("click", function(){
     }).fail(function(){
       alert("HTTP error " + x.status + ": " + x.responseText);
     });
+	var z = ocpu.rpc("write", {}, function(output){
+      $("#try").text(output.message); });
   });
 
   $("#writebutton").on("click", function(a){
     a.preventDefault();
     $("#writebutton").attr("disabled", "disabled");
     var z = ocpu.rpc("write", {}, function(output){
-      $("#try").text(output.message);
-	  $("#writebutton").removeAttr("disabled");
-    });
+      $("#try").text(output.message); });
   });
 });  
 
