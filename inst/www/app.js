@@ -41,7 +41,7 @@ $("#insertbutton").on("click", function(){
   });
 
 function p(){
-    var z = ocpu.rpc("write", {}, function(output){});
+    var z = ocpu.rpc("write", {}, function(output){output.message});
     return z;
 }
  
