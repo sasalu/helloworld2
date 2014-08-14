@@ -40,18 +40,24 @@ $("#insertbutton").on("click", function(){
     });
   });
 
+function p(){
+    var z = ocpu.rpc("write", {}, function(output){});
+    return z;
+}
+ 
+
 $("#selectbutton").on("click", function(){
     
 	
 	
-	var z = ocpu.rpc("write", {}, function(output){});
+	//var z = ocpu.rpc("write", {}, function(output){$("#attribute").text(output.message);});
    
     var elm = document.getElementById('attribute'),
         df = document.createDocumentFragment();
     for (var i = 1; i <= 6; i++) {
         var option = document.createElement('option');
         option.value = i;
-        option.appendChild(document.createTextNode(z+i));
+        option.appendChild(document.createTextNode(p()));
         df.appendChild(option);
     }
     elm.appendChild(df);
