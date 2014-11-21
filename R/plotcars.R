@@ -3,9 +3,9 @@
 
 plotcars <- function () {
 		
- 	con <- dbConnect(MySQL(), host="127.0.0.1", port= 3306, user="root", password = "sasa", dbname="sasa")
+ 	dbhandle <- odbcDriverConnect('driver={SQL Server};server=SASA;database=sasa;trusted_connection=true')
 	
-	res <- dbSendQuery(con, "SELECT x FROM parametre")
+	res <- dbSendQuery(dbhandle, "SELECT x FROM parametre")
 	data = fetch(res, n=-1)
 	plot(data)
 
