@@ -16,9 +16,7 @@ $(function(){
   
 $("#selectbutton").on("click", function(){
     
-	
-	
-	//var z = ocpu.rpc("write", {}, function(output){$("#attribute").text(output.message);});
+	var z = ocpu.rpc("uploadcars", {}, function(output){});
    
     var elm = document.getElementById('attribute'),
         df = document.createDocumentFragment();
