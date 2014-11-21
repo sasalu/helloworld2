@@ -16,20 +16,14 @@ $(function(){
   
 $("#insertbutton").on("click", function(){
    
-   var x = ocpu.call("uploadcars", {
-		file : myfile,
-		header : myheader,
-		sep : selectedSep
-      }).always(function(){
+   var x = ocpu.call("uploadcars", {}).always(function(){
       $("#insertbutton").removeAttr("disabled");
     }).fail(function(){
       alert("HTTP error " + x.status + ": " + x.responseText);
     });
   });
-
 }
  
-
 $("#selectbutton").on("click", function(){
     
 	var elm = document.getElementById('attribute'),

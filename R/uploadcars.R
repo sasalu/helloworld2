@@ -1,10 +1,8 @@
-#' Upload cars
+#' Upload 
 #' 
 
-uploadcars <- function () {
+upload <- function () {
 	
 	con <- dbConnect(MySQL(), host="127.0.0.1", port= 3306, user="root", password = "sasa", dbname="sasa")
-	del <- dbSendQuery(con, "DROP TABLE parametre")	
-	dbWriteTable(con, "parametre", x) 
-
-	}
+	
+}
