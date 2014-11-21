@@ -16,7 +16,7 @@ $(function(){
   
 $("#insertbutton").on("click", function(){
    
-   var x = ocpu.call("uploadcars", {}).always(function(){
+   var x = ocpu.call("upload", {}).always(function(){
       $("#insertbutton").removeAttr("disabled");
     }).fail(function(){
       alert("HTTP error " + x.status + ": " + x.responseText);
