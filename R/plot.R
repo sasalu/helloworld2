@@ -1,7 +1,7 @@
 #' Plot 
 #' 
 
-plotcars <- function () {
+plot <- function () {
 		
  	dbhandle <- odbcDriverConnect('driver={SQL Server};server=SASA;database=sasa;trusted_connection=true')
 	

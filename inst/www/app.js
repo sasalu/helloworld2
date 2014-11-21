@@ -6,7 +6,7 @@ $(function(){
   $("#plotbutton").on("click", function(e){
     e.preventDefault();
     $("#plotbutton").attr("disabled", "disabled")
-    var req = $("#plotdiv").rplot("plotcars", {
+    var req = $("#plotdiv").rplot("plot", {
       }).always(function(){
       $("#plotbutton").removeAttr("disabled");
     }).fail(function(){
